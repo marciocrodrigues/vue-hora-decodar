@@ -9,6 +9,9 @@
             <li>ReactJs</li>
             <li>Angular</li>
         </ul>
+        <div>
+            <button @click="showEmail">{ textoBotao }</button>
+        </div>
         <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
         <p>Para acessar meu portfólio <a v-bind:href="meu_link" target="_blank">basta clicar aqui</a></p>
         <Picture />
@@ -24,9 +27,20 @@ export default {
     data() {
         return {
             esta_trabalhando: true,
-            mostrar_email: true,
+            mostrar_email: false,
             email: 'teste@teste.com.br',
-            meu_link: 'https://www.google.com.br'
+            meu_link: 'https://www.google.com.br',
+            textoBotao: 'Mostrar e-mail'
+        }
+    },
+    methods: {
+        showEmail() {
+            this.mostrar_email = !this.mostrar_email
+            if(this.mostrar_email) {
+                this.textoBotao = 'Esconder e-mail';
+            } else {
+                this.textoBotao = 'Mostrar e-mail'
+            }
         }
     }
 }
