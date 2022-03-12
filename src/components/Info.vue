@@ -2,12 +2,13 @@
     <div>
         <p v-if="esta_trabalhando">Estou trabalhando no momento.</p>
         <p v-else>Estou em busca de novas oportunidades</p>
-        <p>Utilizo as seguintes tecnologias</p>
+        <p>Utilizo as seguintes tecnologias para back-end:</p>
         <ul>
-            <li>Javascriopt</li>
-            <li>C#</li>
-            <li>ReactJs</li>
-            <li>Angular</li>
+            <li v-for="(technology, index) in backend_technologies" v-bind:key="index">{{technology}}</li>
+        </ul>
+        <p>Utilizo as seguintes tecnologias para front-end:</p>
+        <ul>
+            <li v-for="technology in frontend_technologies" :key="technology.id">{{ technology.language }}</li>
         </ul>
         <div>
             <button @click="showEmail">{{ textoBotao }}</button>
@@ -30,7 +31,13 @@ export default {
             mostrar_email: false,
             email: 'teste@teste.com.br',
             meu_link: 'https://www.google.com.br',
-            textoBotao: 'Mostrar e-mail'
+            textoBotao: 'Mostrar e-mail',
+            backend_technologies: ['Javascript', 'C#'],
+            frontend_technologies: [
+                { id: 1, language: 'ReactJS' },
+                { id: 2, language: 'Angular' },
+                { id: 3, language: 'Vue' }
+            ]
         }
     },
     methods: {
