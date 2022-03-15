@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header :esta_logado=false />
     <PrimeiroComponente />
     <p class="pragrafo-pai">O dono desse app é: {{ testando }}</p>
     <LifeCycle />

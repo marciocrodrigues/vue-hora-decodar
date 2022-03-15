@@ -25,11 +25,13 @@ import Picture from './Picture.vue';
 export default {
     components: { Picture },
     name: 'Info',
+    props: {
+        email: String,
+        esta_trabalhando: Boolean
+    },
     data() {
         return {
-            esta_trabalhando: true,
             mostrar_email: false,
-            email: 'teste@teste.com.br',
             meu_link: 'https://www.google.com.br',
             textoBotao: 'Mostrar e-mail',
             backend_technologies: ['Javascript', 'C#'],
